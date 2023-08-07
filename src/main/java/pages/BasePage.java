@@ -15,11 +15,11 @@ public abstract class BasePage {
 //    public BasePage (WebDriver driver){
 //        this.driver = driver;
 //    }
-
-    public BasePage (WebDriver driver) {
+public BasePage (WebDriver driver) {
         wait = new WebDriverWait(DriverPoll.getDriver(), Duration.ofSeconds(15));
         PageFactory.initElements(DriverPoll.getDriver(), this);
     }
+
 
     public BasePage() {
 

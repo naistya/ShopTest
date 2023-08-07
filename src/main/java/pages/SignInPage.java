@@ -4,10 +4,12 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import utiles.User;
 
+import static org.openqa.selenium.remote.tracing.EventAttribute.setValue;
+
 public class SignInPage extends BasePage {
 
     @FindBy(xpath = "//input[@data-test='username']")
-    private WebElement username;
+    private WebElement email;
 
     @FindBy(xpath = "//input[@data-test='password']")
     private WebElement password;
@@ -15,10 +17,8 @@ public class SignInPage extends BasePage {
     @FindBy(xpath = "//input[@data-test='login-button']")
     private WebElement submitBtn;
 
-    public HomePage login(User user) {
-        setValue(username, user.getEmail());
-        setValue(password, user.getPassword());
+    public HomePage clickLoginBtn() {
         click(submitBtn);
-        return new HomePage();
+        return this.clickLoginBtn();
     }
 }
